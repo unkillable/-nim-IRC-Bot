@@ -35,7 +35,9 @@ proc Iris() =
                   var chan:string = strip(split(buffer, ".p ")[1], true, true)
                   var part = "PART $#\r\n" % [chan]
                   send(s, part)    
-             if data.startswith(".q "):
-                  send(s, "QUIT\r\n")           
-    echo("Hello world")
+             if data.startswith(".q"):
+                  send(s, "QUIT\r\n")   
+             if data.startswith(".nim"):
+                  send(s, "PRIVMSG $# :I am a bot made in nim\r\n" % [channel])
+    echo("Looks like I died")
 Iris()
